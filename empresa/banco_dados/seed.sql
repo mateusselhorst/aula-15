@@ -1,10 +1,16 @@
-INSERT INTO usuarios (nome, email) VALUES
-('Mateus Cesar', 'mateuscesar@empresa.com'),
-('Admin', 'admin@empresa.com');
+INSERT INTO categorias (nome) VALUES ('Pães'), ('Bolos'), ('Doces'), ('Bebidas');
 
-INSERT INTO tarefas (descricao, setor, prioridade, status, fk_usuario) VALUES
-('Organizar arquivos do setor de finanças', 'Financeiro', 'Média', 'A fazer', 1),
-('Atualizar planilhas de controle', 'Administrativo', 'Baixa', 'Fazendo', 1),
-('Manutenção dos computadores', 'TI', 'Alta', 'A fazer', 2),
-('Treinamento de novos funcionários', 'RH', 'Média', 'Pronto', 1),
-('Revisar contratos de fornecedores', 'Jurídico', 'Alta', 'A fazer', 2);
+INSERT INTO produtos (nome, preco, categoria_id, quantidade) VALUES
+  ('Pão Francês', 0.80, 1, 100),
+  ('Pão Integral', 1.50, 1, 50),
+  ('Bolo de Chocolate', 25.00, 2, 20);
+
+INSERT INTO clientes (nome, email, telefone) VALUES
+  ('Ana Padaria', 'ana@padaria.com', '11911111111'),
+  ('Pedro Padeiro', 'pedro@padaria.com', '11922222222'),
+  ('Clara Cliente', 'clara@padaria.com', '11933333333');
+
+INSERT INTO pedidos (cliente_id, data_pedido, total) VALUES
+  (1, '2025-11-04', 6.30),
+  (2, '2025-11-04', 28.00),
+  (3, '2025-11-04', 8.00);

@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "empresa_db";
+$dbname = "padaria_db";
 
 $conn = new mysqli($servername,$username,$password,$dbname);
 

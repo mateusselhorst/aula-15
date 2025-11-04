@@ -6,7 +6,7 @@ $erro = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
-    $sql = "SELECT * FROM usuarios WHERE nome = '$nome' AND email = '$email'";
+    $sql = "SELECT * FROM clientes WHERE nome = '$nome' AND email = '$email'";
     $result = $conn->query($sql);
     if ($result && $result->num_rows == 1) {
         $row = $result->fetch_assoc();
@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     <?php if ($erro)$erro.'</p>'; ?>
 <?php else: ?>
-    <h2>Bem-vindo, <?php echo htmlspecialchars($_SESSION['nome']); ?>!</h2>
-    <a href="create_usuarios.php"><button>Adicionar funcionário</button></a>
-    <a href="create_funcoes.php"><button>Adicionar funções</button></a>
+    <h2>Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>!</h2>
+    <a href="create_produtos.php"><button>Cliente</button></a>
+    <a href="create_usuarios.php"><button>Usuários</button></a>
     <form method="POST" action="logout.php" style="display:inline;">
         <button type="submit">Sair</button>
     </form>

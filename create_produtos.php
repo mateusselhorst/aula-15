@@ -5,11 +5,9 @@ include 'db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && (isset($_POST['create']))) {
 
     $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $status = $_POST['status'];
+    $preco = $_POST['preco'];
 
-    $sql = "INSERT INTO clientes (nome, email, telefone) VALUES ('$nome', '$email', '$telefone')";
+    $sql = "INSERT INTO produtos (nome, preco) VALUES ('$nome', '$preco')";
 
     if ($conn->query($sql) === true) {
         echo "Novo registro no Banco!";
@@ -27,38 +25,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && (isset($_POST['create']))) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREATE</title>
+    <title>Create produtos</title>
 </head>
 
 <body>
 
-<h1>Clientes</h1>
+<h1>Produtos</h1>
 
     <div id="tabela-de-consulta">
 
         <?php
 
-        include 'read_clientes.php';
-
-        ?>
-
-<h2>Produtos</h2>
-
-        <?php
-        
         include 'read_produtos.php';
 
         ?>
 
-        <h3>Pedidos</h3>
-
-        <?php
-        
-        include 'read_pedidos.php';
-
-        ?>
-
     </div><br>
+
+    <h2>Criar Pedido</h2>
+
+        <label for="id">ID do produto:</label>
+        <input type="text" name="id" required>
+        <br><br>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" name="quantidade" required>
+        <br><br>
+        <a href="pedidos.php"><button>Pedir</button></a><br><br>
 
         <a href="index.php"><button>Voltar para o início</button></a>
 
